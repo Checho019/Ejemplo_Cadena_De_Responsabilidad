@@ -1,8 +1,7 @@
 package org.example.cadenaDeResponsabilidades;
 
-public abstract class Manejador {
+public abstract class Manejador implements IManejador{
     private Manejador sigManejador;
-    public abstract boolean manejar(int numero);
     public Manejador getSigManejador() {
         return sigManejador;
     }

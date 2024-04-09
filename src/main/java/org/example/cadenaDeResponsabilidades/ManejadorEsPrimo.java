@@ -3,6 +3,7 @@ package org.example.cadenaDeResponsabilidades;
 public class ManejadorEsPrimo extends Manejador{
     @Override
     public boolean manejar(int numero) {
+        boolean ret;
         if (numero <= 1) {
             return false;
         }
@@ -18,6 +19,10 @@ public class ManejadorEsPrimo extends Manejador{
                 return false;
             }
         }
-        return true;
+
+        if (getSigManejador() == null){
+            return true;
+        }
+        return getSigManejador().manejar(numero);
     }
 }

@@ -8,7 +8,13 @@ public class ManejadorDivisible extends Manejador{
 
     @Override
     public boolean manejar(int numero) {
-        return numero % divisor == 0;
+        if (numero % divisor == 0){
+            if (getSigManejador() == null){
+                return true;
+            }
+            return getSigManejador().manejar(numero);
+        }
+        return false;
     }
 
     public int getDivisor() {

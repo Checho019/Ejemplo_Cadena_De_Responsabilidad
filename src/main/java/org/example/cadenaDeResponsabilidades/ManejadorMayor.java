@@ -11,10 +11,13 @@ public class ManejadorMayor extends Manejador{
 
     @Override
     public boolean manejar(int numero) {
-        if (this.esIgual) {
-            return numero >= limiteMenor;
+        if (this.esIgual && numero >= limiteMenor) {
+            return getSigManejador() == null || getSigManejador().manejar(numero);
         }
-        return numero > limiteMenor;
+        if (numero > limiteMenor){
+            return getSigManejador() == null || getSigManejador().manejar(numero);
+        }
+        return false;
     }
 
     public int getLimiteMenor() {

@@ -12,10 +12,7 @@ public class ManejadorSubconjunto extends Manejador{
 
     @Override
     public boolean manejar(int numero) {
-        if (Arrays.binarySearch(this.subconjunto, numero) >= 0){
-            return true;
-        }
-        return false;
+        return Arrays.binarySearch(this.subconjunto, numero) >= 0 && (getSigManejador() == null || getSigManejador().manejar(numero));
     }
 
     public int[] getSubconjunto() {
